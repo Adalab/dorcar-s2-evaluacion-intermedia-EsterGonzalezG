@@ -11,23 +11,44 @@ function getRandomNumber(max) {
   aleatorio= Math.ceil(Math.random() * max);
   return aleatorio;
 }
+var numAle=getRandomNumber(100);
+console.log("aleatorio "+numAle);
 
-// Anda, chacho, píntame en la consola un número random hasta 100;
-console.log('> ' + getRandomNumber(100));
+function condicion() {
+  if(aleatorio<parseInt(numberUserCo)){
 
-boton.addEventListener('click',numero);
-
-
-function numero() {
-  numberUserCo = numberUser.value;
-  console.log("el número del usuario "+ numberUserCo);
-  if(aleatorio<numberUserCo){
+    numberUser.select();
     mensaje.innerHTML="Demasiado alto";
-  }else if (aleatorio>numberUserCo){
+
+  }else if (aleatorio>parseInt(numberUserCo)){
+
+    numberUser.select();
     mensaje.innerHTML="Demasiado bajo";
+
+  }else if(numberUserCo==="") {
+    numberUser.focus();
   }else{
     mensaje.innerHTML="¡HAS GANADO, CAMPEONA!";
   }
+}
+function contador() {
   cont++;
+  input();
   contPaint.innerHTML=cont;
 }
+function input() {
+  if(numberUser.value===""){
+    alert("Escribe un número, por favor");
+    numberUser.focus();
+    cont-=1;
+  }
+
+}
+
+function numero() {
+  contador();
+  numberUserCo = numberUser.value;
+  console.log("el número del usuario "+ numberUserCo);
+  condicion();
+}
+boton.addEventListener('click',numero);
