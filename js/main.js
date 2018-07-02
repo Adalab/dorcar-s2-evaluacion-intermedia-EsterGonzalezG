@@ -33,20 +33,21 @@ function condicion() {
 }
 function contador() {
   cont++;
-  input();
   contPaint.innerHTML=cont;
 }
 function input() {
   if(numberUser.value===""){
     alert("Escribe un número, por favor");
     numberUser.focus();
-    cont-=1;
-  }
+
+  }else{
+contador();
+}
 
 }
 
 function numero() {
-  contador();
+input();
   numberUserCo = numberUser.value;
   console.log("el número del usuario "+ numberUserCo);
   condicion();
