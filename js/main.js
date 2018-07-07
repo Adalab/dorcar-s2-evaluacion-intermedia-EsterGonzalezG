@@ -14,7 +14,7 @@ function getRandomNumber(max) {
 var numAle=getRandomNumber(100);
 console.log("aleatorio "+numAle);
 
-function condicion() {
+function conditionWin() {
   if(aleatorio<parseInt(numberUserCo)){
 
     numberUser.select();
@@ -29,27 +29,28 @@ function condicion() {
     numberUser.focus();
   }else{
     mensaje.innerHTML="¡HAS GANADO, CAMPEONA!";
+
   }
 }
-function contador() {
+function count() {
   cont++;
   contPaint.innerHTML=cont;
 }
-function input() {
+function inputEmpty() {
   if(numberUser.value===""){
     alert("Escribe un número, por favor");
     numberUser.focus();
 
   }else{
-contador();
-}
+    count();
+  }
 
 }
 
 function numero() {
-input();
+  inputEmpty();
   numberUserCo = numberUser.value;
-  console.log("el número del usuario "+ numberUserCo);
-  condicion();
+  console.log("El número del usuario "+ numberUserCo);
+  conditionWin();
 }
 boton.addEventListener('click',numero);
